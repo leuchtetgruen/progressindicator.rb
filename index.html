@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>index</title>
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+				<script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+				<script src="progress_indicator.js" type="text/javascript" charset="utf-8"></script>
+				<link rel="stylesheet" href="bootstrap_progress.css" type="text/css" media="screen" title="no title" charset="utf-8">
+				
+				
+				<script type="text/javascript" charset="utf-8">
+					$(document).ready(function() {
+						PInd.configDefault();
+						PInd.progressViaWebSocket("ws://localhost:8080/");
+						
+					});
+				</script>
+				
+				
+				<style type="text/css" media="screen">
+					body {
+						background-image: url(light_wool.png);
+					}
+				
+					.vertWrapper {
+						position: absolute;
+					  top: 50%;
+					  left: 0px;
+					  width: 100%;
+					  height: 1px;
+					  overflow: visible;
+					}
+					
+					.graybox {
+						border: 1px solid #aaa;
+						background-color: rgba(238,238,238,0.5);
+						border-radius: 7px;
+						padding: 10px;
+						text-shadow: 0px 1px 1px #fff;
+						color: #888;
+						font-family: 'Arial';
+						
+						width: 500px;
+					  height: 200px;
+					  margin-left: -250px;  /***  width / 2   ***/
+					  position: absolute;
+					  top: -100px;          /***  height / 2   ***/
+					  left: 50%;
+					
+						box-shadow: 1px 1px 5px #aaa;
+					}
+					
+					.graybox h2 {
+						color: #369;
+						border-bottom: 1px solid #aaa;
+						margin-bottom: 15px;
+					}
+					
+					.graybox .progress {
+						margin-top: 45px;
+						max-width: 90%;
+						margin-left: 5%;
+					}
+					
+					#message {
+						text-align: center;
+						width: 100%;
+					}
+					
+					
+				</style>
+</head>
+<body>
+	
+	<div class="vertWrapper">
+		<div class="graybox" id="main">
+			<h2 id="title"></h2>
+
+			<div id="progress" class="progress progress-striped active">
+			  <div id="progressbar" class="bar" style="width: 10%;">
+			  </div>
+			</div>
+			 <div id="message"></div>			
+		</div>
+		
+	</div>
+</body>
+</html>
